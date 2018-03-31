@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 
 public class MRKreport
-
 {
 	static String JarFilePath;
 	static int PageTotal=0;
@@ -43,6 +42,14 @@ public class MRKreport
      }
     SaveReport();
     
+    try {
+		Thread.sleep(2000);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+  System.exit(0);
+
 	}
 	
 	
@@ -121,9 +128,10 @@ public class MRKreport
 			 
 			}
 			//System.out.println(nameArray.get(currentindex)+String.format(":  %d", PageTotal));
-			strlog=strlog+nameArray.get(currentindex);
-			strlog=strlog+String.format(" : %d", PageTotal);
-	        strlog=strlog+newLine;
+		    strlog=strlog+Pad(nameArray.get(currentindex),40,"-");
+			strlog=strlog+String.format(" : %d",PageTotal);
+			strlog=strlog+newLine;
+	   
 	    }
 			
 		
@@ -164,16 +172,18 @@ public class MRKreport
 	    	     } 
 	    	  catch (IOException e1)
 	    	   {e1.printStackTrace();	}
-
-    	
-    
     
       }
-
-
-
-
-
+    	
+    	public static String Pad(String str, int size, String string)
+    	{
+    	  StringBuffer padded = new StringBuffer(str);
+    	  while (padded.length() < size)
+    	  {
+    	    padded.append(string);
+    	  }
+    	  return padded.toString();
+    	}
 
 }
 
