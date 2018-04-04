@@ -11,6 +11,7 @@ import java.io.FileWriter;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import javax.swing.*;    
 
@@ -94,6 +95,12 @@ public int GetAllFiles()
 	  TotalMarklists=pathArray.size();
    System.out.println(TotalMarklists);
 	  return TotalMarklists;
+}
+
+public void Sort()
+{
+	Collections.sort(nameArray);
+	Collections.sort(pathArray);
 }
 
 public void LoadMarkListFileToStrArray(int currentindex)
