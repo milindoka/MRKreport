@@ -163,8 +163,11 @@ public void ExtractAllHeaderFields(int currentindex)
 	 
 	}
 	//System.out.println(nameArray.get(currentindex)+String.format(":  %d", PageTotal));
-    strlog=strlog+Pad(nameArray.get(currentindex),40,"-");
-	strlog=strlog+String.format(" : %d",PageTotal);
+	String fnem=nameArray.get(currentindex);
+	if(fnem.length()>30) fnem=fnem.substring(0,30);
+    strlog=strlog+Pad(fnem,30,"-");
+	strlog=strlog+String.format(" : %4d",PageTotal);
+	if(currentindex%2==0) { strlog+="     "; return; } 
 	strlog=strlog+newLine;
 
 }
